@@ -65,8 +65,7 @@ in their YAML header.
 
 Since it is meant to work together with `mathjax3eqno`, also add
 
-    quarto add ute/parse-latex-noeq
-
+    quarto add ute/mathjax3eqno
 Use 
 ``` yaml
 ---

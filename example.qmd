@@ -3,7 +3,7 @@ title: "Parse LaTeX examples"
 format: html
 number-sections: true
 filters:
-  - parse-latex
+  - parse-latex-noeq
   - mathjax3eqno
 ---
 
