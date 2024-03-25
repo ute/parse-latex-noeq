@@ -4,6 +4,7 @@ format: html
 number-sections: true
 filters:
   - parse-latex
+  - mathjax3eqno
 ---
 
 
@@ -13,6 +14,7 @@ filters:
 
 \section{Table}\label{Table Example}
 
+::: {#tbl-Example}
 
 \begin{center}
 \begin{tabular}{|l|l|l|}
@@ -26,6 +28,8 @@ $z $          &  integer      &   xlp \\
 \end{tabular}
 \end{center}
 
+A fabulous table that defines various variables
+:::
 
 \section{Enumeration}
 
@@ -33,18 +37,25 @@ An enumeration
 
 \begin{enumerate}
 \item \textit{Title}\\
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+Lorem ipsum dolor sit amet, consetetur \textcolor{red}{sadipscing elitr}, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
 \item \textit{Second Title}\\
 Lorem ipsum dolor sit ame....
 \end{enumerate}
 
 
+# Equations {#sec-Eqs}
 
-\section{Equations}
+In the original version of `parse-LaTeX`, these equations would not get numbered automatically. But with `mathjax3eqno`, they do.
 
 \begin{equation}
-x^2 = x * x \label{equation}
+x^2 = x * x \label{equation}\tag{super}
 \end{equation}
+
+Another one. It was not numbered. But now it is numbered
+\begin{align}
+x^2 &= x * x \notag
+\\y^2 &= y * y\label{equation2}
+\end{align}
 
 \section{Itemize}
 
@@ -55,4 +66,4 @@ x^2 = x * x \label{equation}
 
 \section{Cross-reference}
 
-\ref{Section Example} and \ref{Table Example} both are referenced as expected. See \ref{equation} for a reference to an equation.
+Using quarto crossreferences, you can refer to @sec-Eqs and @tbl-Example. LaTeX referencing now works exclusively for equations, see \eqref{equation} for a reference to an equation, and also \eqref{equation2} i.e. Equation \ref{equation2}

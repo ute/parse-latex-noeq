@@ -1,7 +1,7 @@
 Parse LaTeX but not equations– a Lua filter
 ==================================================================
 
-This is a fork from [tarleb's parse-latex filter](https://github.com/tarleb/parse-latex/) to make it work with the [mathjax3eqno quarto extension](https://github.com/ute/mathjax3eqno/) . 
+This is a fork from [tarleb's parse-latex filter](https://github.com/tarleb/parse-latex/) to make it work with the [mathjax3eqno quarto extension](https://github.com/ute/mathjax3eqno/). 
 
 
 A filter to use when the input contains raw LaTeX that should be
@@ -63,12 +63,22 @@ Add this filter to a project
 and use it by adding `parse-latex` to the `filters` entry
 in their YAML header.
 
+Since it is meant to work together with `mathjax3eqno`, also add
+
+    quarto add ute/parse-latex-noeq
+
+Use 
 ``` yaml
 ---
 filters:
   - parse-latex-noeq
+  - mathjax3eqno
 ---
 ```
+
+Caveat
+----------------------------------
+This filter does not process references `\ref` anymore, since this is taken care of by mathjax, via filter `mathjax3eqno`. As a consequence, you can no longer refer to tables or headers the LaTeX way, but have to use quartos cross-referencing mechanism, however quarto is great for this purpose and allows preview on mouse-hover :-).
 
 
 License

@@ -1,6 +1,6 @@
-name: parse-latex
-author: Albert Krewinkel
+name: parse-latex-noeq
+author: Albert Krewinkel, patched by Ute Hahn
 version: 1.0.0
 contributes:
   filters:
-    - parse-latex.lua
+    - parse-latex-noeq.lua
