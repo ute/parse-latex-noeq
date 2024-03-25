@@ -1,7 +1,8 @@
-Parse LaTeX – a Lua filter
+Parse LaTeX but not equations– a Lua filter
 ==================================================================
 
-[![GitHub build status][CI badge]][CI workflow]
+This is a fork from [tarleb's parse-latex filter](https://github.com/tarleb/parse-latex/) to make it work with the [mathjax3eqno quarto extension](https://github.com/ute/mathjax3eqno/) . 
+
 
 A filter to use when the input contains raw LaTeX that should be
 included in other output formats. The filter uses pandoc's LaTeX
@@ -10,7 +11,7 @@ reader to parse raw snippets.
 [CI badge]: https://img.shields.io/github/workflow/status/tarleb/parse-latex/CI?logo=github
 [CI workflow]: https://github.com/tarleb/parse-latex/actions/workflows/ci.yaml
 
-Functionality
+Functionality (from original)
 ------------------------------------------------------------------
 
 The intended use for this filter are cases in which a Markdown
@@ -53,18 +54,11 @@ LaTeX snippet, then neither can this filter.
 Usage
 ------------------------------------------------------------------
 
-Pass the filter to pandoc via the `--lua-filter` (or `-L`) command
-line option.
+This version of the filter is meant to be used with [`mathjax3eqno`](https://github.com/ute/mathjax3eqno/) in Quarto.
 
-    pandoc --lua-filter parse-latex.lua ...
+Add this filter to a project
 
-Raw LaTeX blocks and inlines will be parsed by pandoc and inserted
-back into the document. The filter does nothing when converting to
-LaTeX, and the original snippets are passed through in this case.
-
-Users of Quarto can install this filter as an extension with
-
-    quarto install extension tarleb/parse-latex
+    quarto add ute/parse-latex-noeq
 
 and use it by adding `parse-latex` to the `filters` entry
 in their YAML header.
