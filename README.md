@@ -8,8 +8,6 @@ A filter to use when the input contains raw LaTeX that should be
 included in other output formats. The filter uses pandoc's LaTeX
 reader to parse raw snippets.
 
-[CI badge]: https://img.shields.io/github/workflow/status/tarleb/parse-latex/CI?logo=github
-[CI workflow]: https://github.com/tarleb/parse-latex/actions/workflows/ci.yaml
 
 Functionality (from original)
 ------------------------------------------------------------------
@@ -66,7 +64,9 @@ in their YAML header.
 Since it is meant to work together with `mathjax3eqno`, also add
 
     quarto add ute/mathjax3eqno
-Use 
+
+Use the two filters together
+
 ``` yaml
 ---
 filters:
