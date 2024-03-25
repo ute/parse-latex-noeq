@@ -66,7 +66,7 @@ in their YAML header.
 ``` yaml
 ---
 filters:
-  - parse-latex
+  - parse-latex-noeq
 ---
 ```
 
